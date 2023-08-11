@@ -5,18 +5,21 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviourPun
 {
+
+    private float destroyTime = 5f;
+
+
     void Start()
     {
-        Invoke("DestroyBullet", 5f);
         
+        Invoke("DestroyBullet", destroyTime);
     }
 
-    void DestroyBullet()
+    public void DestroyBullet()
     {
         PhotonNetwork.Destroy(gameObject);
+        
     }
-    
-
 
 
 }

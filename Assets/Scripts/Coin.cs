@@ -6,7 +6,6 @@ public class Coin : MonoBehaviourPun
     [PunRPC]
     void DestroyCoin()
     {
-        // Уничтожить монетку на локальном клиенте
         Destroy(gameObject);
     }
 
@@ -14,7 +13,6 @@ public class Coin : MonoBehaviourPun
     {
         if (other.CompareTag("Player"))
         {
-            // Вызвать удаленную процедуру для уничтожения монетки на всех клиентах
             photonView.RPC("DestroyCoin", RpcTarget.All);
         }
     }
